@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gmail UI Clone (Interface Only)</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="left">
+      <span class="menu-btn" id="menuBtn">☰</span>
+
+      <div class="gmail-logo">
+        <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico" alt="Gmail" />
+        <span class="logo-text">Gmail</span>
+      </div>
+    </div>
+    <div class="center">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search mail" class="search" />
+      </div>
+    </div>
+    <div class="right">
+      <i class="fa-regular fa-circle-question"></i>
+      <i class="fa-solid fa-gear"></i>
+      <i class="fa-solid fa-th"></i>
+        <div class="profile">N</div>
+    </div>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <button class="compose">
+        <i class="fa-solid fa-pen"></i> <span class="text">Compose</span>
+      </button>
+      <ul>
+        <li class="active"><i class="fa-solid fa-inbox"></i> <span class="text">Inbox</span></li>
+        <li><i class="fa-regular fa-star"></i> <span class="text">Starred</span></li>
+        <li><i class="fa-regular fa-clock"></i> <span class="text">Snoozed</span></li>
+        <li><i class="fa-regular fa-paper-plane"></i> <span class="text">Sent</span></li>
+        <li><i class="fa-regular fa-file"></i> <span class="text">Drafts</span></li>
+        <li><i class="fa-solid fa-shopping-cart"></i> <span class="text">Purchases</span></li>
+      </ul>
+    </aside>
+
+    <!-- EMAIL LIST -->
+    <main class="mail-list">
+      <div class="mail unread">
+
+  <!-- LEFT CONTROLS -->
+  <div class="mail-left">
+    <input type="checkbox" class="mail-checkbox">
+
+    <i class="fa-regular fa-star mail-star"></i>
+
+  </div>
+
+  <!-- MAIL CONTENT -->
+  <div class="mail-content">
+    <span class="sender">Google</span>
+    <span class="subject">Welcome to Gmail</span>
+  </div>
+
+  <div class="mail-actions">
+      <i class="fa-solid fa-box-archive"></i>
+      <i class="fa-regular fa-trash-can"></i>
+      <i class="fa-regular fa-envelope-open"></i>
+      <i class="fa-regular fa-clock"></i>
+    </div>
+
+  <!-- TIME -->
+  <span class="time">10:30 AM</span>
+
+</div>
+      <div class="mail" border-radius="12px">
+        <div class="mail-left">
+      <input type="checkbox" class="mail-checkbox">
+      <i class="fa-regular fa-star mail-star"></i>
+    </div>
+
+    <div class="mail-content">
+      <span class="sender">Amazon</span>
+      <span class="subject">Your order is shipped</span>
+    </div>
+
+    <div class="mail-actions">
+        <i class="fa-solid fa-box-archive"></i>
+        <i class="fa-regular fa-trash-can"></i>
+        <i class="fa-regular fa-envelope-open"></i>
+        <i class="fa-regular fa-clock"></i>
+      </div>
+
+    <span class="time">Yesterday</span>
+  </div>
+
+  <!-- ANOTHER MAIL -->
+  <div class="mail">
+    <div class="mail-left">
+      <input type="checkbox" class="mail-checkbox">
+      <i class="fa-regular fa-star mail-star"></i>
+    </div>
+
+    <div class="mail-content">
+      <span class="sender">LinkedIn</span>
+      <span class="subject">New job recommendations</span>
+    </div>
+    <div class="mail-actions">
+        <i class="fa-solid fa-box-archive"></i>
+        <i class="fa-regular fa-trash-can"></i>
+        <i class="fa-regular fa-envelope-open"></i>
+        <i class="fa-regular fa-clock"></i>
+      </div>
+
+    <span class="time">Mon</span>
+      </div>
+    </main>
+
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>

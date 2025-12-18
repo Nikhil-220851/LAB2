@@ -1,0 +1,277 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #ffffff;
+}
+
+/* TOP BAR */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: white;
+  border-bottom: 1px solid rgba(221, 221, 221, 0)83800;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.right, .center, .left {
+    display: flex;
+    align-items: center;
+}
+
+.right{
+  gap: 20px;
+}
+
+.right i{
+  font-size: 18px;
+}
+.center {
+    flex: 1;
+    justify-content: center;
+}
+
+.menu-btn {
+  font-size: 22px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.gmail-logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.gmail-logo img {
+  width: 30px;
+  height: 30px;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 500;
+  color: #5f6368; /* Gmail grey */
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #e8eaed;      /* grey bar */
+  border-radius: 24px;
+  padding: 0 16px;
+  width: 500px;             /* control size */
+  height: 44px;
+}
+
+/* Icon */
+.search-icon {
+  color: #5f6368;
+  font-size: 14px;
+  margin-right: 12px;
+}
+
+/* Input is transparent */
+.search {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent; /* KEY LINE */
+  font-size: 14px;
+}
+
+.search-box i{
+  color:#474747
+}
+/* Focus effect (Gmail-like) */
+.search-box:focus-within {
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.profile {
+  width: 35px;
+  height: 35px;
+  background: #1a73e8;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* MAIN */
+.container {
+  display: flex;
+  width: 100vw;
+  height: 90vh;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 240px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: white;
+  transition: width 0.3s ease;
+}
+
+.sidebar ul {
+  flex: 1;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar.minimized {
+  width: 70px;
+}
+
+/* Hide text when minimized */
+.sidebar.minimized .text {
+  display: none;
+}
+
+/* Center icons */
+.sidebar.minimized li,
+.sidebar.minimized .compose {
+  justify-content: center;
+}
+
+.sidebar ul li,
+.compose {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.sidebar ul li:hover,
+.compose:hover {
+  background: #e8f0fe;
+}
+
+.sidebar i {
+  font-size: 16px;
+  color: #5f6368; /* Gmail grey */
+  min-width: 20px;
+  text-align: center;
+}
+
+.compose {
+  width: 70%;
+  height: 10%;
+  padding: 10px;
+  background: #87cfff;
+  border: none;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.compose:hover{
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2)
+}
+
+.sidebar ul li {
+  list-style: none;
+  padding: 10px;
+  cursor: pointer;
+}
+.sidebar ul li.active {
+  background: #b6d3ff;
+  border-radius: 20px;
+  font-weight: bold;
+}
+.sidebar ul li:hover {
+  background: #e8f0fe;
+  border-radius: 20px;
+  box-shadow: #181818;
+}
+
+/* MAIL LIST */
+.mail-list {
+  flex: 1;
+  background: rgb(255, 255, 255);
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+}
+
+.mail {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.mail-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 140px;
+  position: relative;
+}
+
+.mail-star {
+  color: #5f6368;
+  cursor: pointer;
+}
+
+.mail-star.active {
+  color: #f4b400; /* Gmail yellow */
+}
+
+.mail-actions {
+  display: none;
+  gap: 30px;
+  color: #5f6368;
+}
+
+.mail:hover .mail-actions {
+  display: flex;
+}
+
+.mail:hover .time {
+  display: none;
+}
+
+.mail-content {
+  flex: 1;
+  display: flex;
+  gap: 10px;
+}
+
+.sender {
+  font-weight: 500;
+  min-width: 120px;
+}
+
+.subject {
+  color: #5f6368;
+}
+
+.mail.unread {
+  font-weight: bold;
+  background: #f6f8fc;
+  border-radius: 10px;
+}
+
+.mail:hover {
+  background: #eef3fd;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
