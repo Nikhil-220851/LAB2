@@ -1,262 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Gmail UI Clone (Interface Only)</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    .Thead{
-    background-color: #00ffbf;
-    font-weight: bold;
-    font: comics sans ms;
-    color: rgb(0, 80, 33);
-    width: 50%;
-    }
-  .even{
-    border-collapse: collapse;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    width: 50%;
-    background-color: aliceblue;
-    border-radius: 50px;
-    }
-    .odd{
-      border-collapse: collapse;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    width: 50%;
-    background-color: #00ffbfce;
-    border-radius: 50px;
-    }
-    table{
-      border-color:#f1f1f1;
-      border-collapse: collapse;
-      border-radius: 12px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Simple Gmail UI</title>
+<link href="style.css" rel="stylesheet">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f1f3f4;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 20px;
+  background:white;
+  border-bottom:1px solid #ddd;
+}
+
+.logo-text{
+  font-size:22px;
+  color:#5f6368;
+}
+
+.search-box{
+  display:flex;
+  align-items:center;
+  width:450px;
+  background:#e8eaed;
+  padding:10px 15px;
+  border-radius:24px;
+}
+
+.search-box input{
+  border:none;
+  background:transparent;
+  outline:none;
+  flex:1;
+}
+
+.profile{
+  width:35px;
+  height:35px;
+  background:#1a73e8;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.container{
+  display:flex;
+  height:90vh;
+}
+
+.sidebar{
+  width:240px;
+  background:white;
+  padding:15px;
+}
+
+.compose{
+  background:#c2e7ff;
+  border:none;
+  padding:10px;
+  border-radius:20px;
+  width:100%;
+  margin-bottom:15px;
+  cursor:pointer;
+}
+
+.sidebar ul{
+  list-style:none;
+}
+
+.sidebar li{
+  padding:10px;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.sidebar li.active{
+  background:#d2e3fc;
+  font-weight:bold;
+}
+
+.sidebar li:hover{
+  background:#e8f0fe;
+}
+
+.mail-list{
+  flex:1;
+  margin:10px;
+  background:white;
+  border-radius:10px;
+  padding:10px;
+}
+
+.mail{
+  display:flex;
+  align-items:center;
+  padding:10px;
+  border-bottom:1px solid #eee;
+}
+
+.mail:hover{
+  background:#eef3fd;
+}
+
+.mail-content{
+  flex:1;
+}
+
+.sender{
+  font-weight:bold;
+}
+
+.subject{
+  color:#5f6368;
+}
+
+.time{
+  color:#5f6368;
+}
+
+.section{
+  margin:20px;
+  background:white;
+  padding:20px;
+  border-radius:12px;
+}
+
+.section h2{
+  margin-bottom:15px;
+  color:#1a73e8;
+}
+
+table{
+  border-collapse:collapse;
+  width:300px;
+}
+
+th,td{
+  border:1px solid #ddd;
+  padding:8px;
+  text-align:center;
+}
+
+.Thead{ 
+  background:#00ffbf; 
+  color:#005021; 
+} 
+
+.even{ 
+  background:#e8f7ff; 
+} 
+
+.odd{ 
+  background:#bfffe7; 
+}
+
+.Frm{
+  width:300px;
+  padding:20px;
+  margin:auto;
+  background:#e3f2fd;
+  border-radius:10px;
+  background-image: url("https://img.freepik.com/free-vector/colorful-flow-background_52683-43163.jpg");
+  background-repeat: no-repeat;
+}
+
+.Label{
+  display:block;
+  margin-top:15px;
+  font-weight:bold;
+}
+
+.Input{
+  width:100%;
+  padding:6px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+.Button{
+  width:100%;
+  height:40px;
+  margin-top:20px;
+  background:#1a73e8;
+  color:white;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.Button:hover{
+  background:#1557b0;
+}
+</style>
 </head>
+
 <body>
-  
-  <!-- TOP BAR -->
-  <header class="topbar">
-    <div class="left">
-      <span class="menu-btn" id="menuBtn">☰</span>
 
-      <div class="gmail-logo">
-        <img src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico" alt="Gmail" />
-        <span class="logo-text">Gmail</span>
-      </div>
-    </div>
-    <div class="center">
-      <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Search mail" class="search" />
-      </div>
-    </div>
-    <div class="right">
-      <i class="fa-regular fa-circle-question"></i>
-      <i class="fa-solid fa-gear"></i>
-      <i class="fa-solid fa-th"></i>
-        <div class="profile">N</div>
-    </div>
-  </header>
+<header class="topbar">
+  <div class="logo-text">Gmail</div>
 
-  <!-- MAIN LAYOUT -->
-  <div class="container">
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar" id="sidebar">
-      <button class="compose">
-        <i class="fa-solid fa-pen"></i> <span class="text">Compose</span>
-      </button>
-      <ul>
-        <li class="active"><i class="fa-solid fa-inbox"></i> <span class="text">Inbox</span></li>
-        <li><i class="fa-regular fa-star"></i> <span class="text">Starred</span></li>
-        <li><i class="fa-regular fa-clock"></i> <span class="text">Snoozed</span></li>
-        <li><i class="fa-regular fa-paper-plane"></i> <span class="text">Sent</span></li>
-        <li><i class="fa-regular fa-file"></i> <span class="text">Drafts</span></li>
-        <li><i class="fa-solid fa-shopping-cart"></i> <span class="text">Purchases</span></li>
-      </ul>
-    </aside>
-
-    <!-- EMAIL LIST -->
-    <main class="mail-list">
-      <div class="mail unread">
-
-  <!-- LEFT CONTROLS -->
-  <div class="mail-left">
-    <input type="checkbox" class="mail-checkbox">
-
-    <i class="fa-regular fa-star mail-star"></i>
-
+  <div class="search-box">
+    <input placeholder="Search mail">
   </div>
 
-  <!-- MAIL CONTENT -->
-  <div class="mail-content">
-    <span class="sender">Google</span>
-    <span class="subject">Welcome to Gmail</span>
-  </div>
+  <div class="profile">N</div>
+</header>
 
-  <div class="mail-actions">
-      <i class="fa-solid fa-box-archive"></i>
-      <i class="fa-regular fa-trash-can"></i>
-      <i class="fa-regular fa-envelope-open"></i>
-      <i class="fa-regular fa-clock"></i>
+<div class="container">
+
+<aside class="sidebar">
+  <button class="compose">Compose</button>
+  <ul>
+    <li class="active">Inbox</li>
+    <li>Starred</li>
+    <li>Sent</li>
+  </ul>
+</aside>
+
+<main class="mail-list">
+  <div class="mail">
+    <input type="checkbox">
+    <div class="mail-content">
+      <span class="sender">Google</span> —
+      <span class="subject">Welcome to Gmail</span>
     </div>
-
-  <!-- TIME -->
-  <span class="time">10:30 AM</span>
+    <span class="time">10:30 AM</span>
+  </div>
+</main>
 
 </div>
-      <div class="mail" border-radius="12px">
-        <div class="mail-left">
-      <input type="checkbox" class="mail-checkbox">
-      <i class="fa-regular fa-star mail-star"></i>
-    </div>
 
-    <div class="mail-content">
-      <span class="sender">Amazon</span>
-      <span class="subject">Your order is shipped</span>
-    </div>
+<div class="section">
+<h2>Media</h2>
+<div>
+<iframe height="200" src="https://www.youtube.com/embed/GFCvD76qwPA"></iframe>
+<audio controls></audio>
+<video controls></video>
+<img width="100%" src="https://thumbs.dreamstime.com/b/autumn-leaves-wet-stone-pathway-park-beautiful-fall-season-weather-night-concept-melancholy-rain-scene-wallpaper-395389772.jpg?w=992">
+</div>
+</div>
 
-    <div class="mail-actions">
-        <i class="fa-solid fa-box-archive"></i>
-        <i class="fa-regular fa-trash-can"></i>
-        <i class="fa-regular fa-envelope-open"></i>
-        <i class="fa-regular fa-clock"></i>
-      </div>
-
-    <span class="time">Yesterday</span>
-  </div>
-
-  <!-- ANOTHER MAIL -->
-  <div class="mail">
-    <div class="mail-left">
-      <input type="checkbox" class="mail-checkbox">
-      <i class="fa-regular fa-star mail-star"></i>
-    </div>
-
-    <div class="mail-content">
-      <span class="sender">LinkedIn</span>
-      <span class="subject">New job recommendations</span>
-    </div>
-    <div class="mail-actions">
-        <i class="fa-solid fa-box-archive"></i>
-        <i class="fa-regular fa-trash-can"></i>
-        <i class="fa-regular fa-envelope-open"></i>
-        <i class="fa-regular fa-clock"></i>
-      </div>
-
-    <span class="time">Mon</span>
-      </div>
-   <!-- YouTube video (iframe is correct) -->
-<iframe
-  width="315"
-  height="576"
-  src="https://www.youtube.com/embed/n2rzB_YdKqY"
-  title="YouTube Shorts"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-  allowfullscreen>
-</iframe>
-
-<br><br>
-
-<!-- Audio tag (FIXED) -->
-<audio controls>
-  <source src="audio.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
-<br><br>
-
-<!-- Video tag (must be a direct video file, NOT YouTube) -->
-<video width="315" height="576" controls poster="thumbnail.jpg">
-  <source src="video.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
-<br><br>
-
-<!-- Image -->
-<img
-  src="https://thumbs.dreamstime.com/b/autumn-leaves-wet-stone-pathway-park-beautiful-fall-season-weather-night-concept-melancholy-rain-scene-wallpaper-395389772.jpg?w=992"
-  width="300"
-  height="300">
-
-<iframe width="500" height="500" src="https://www.awwwards.com/sites/ventriloc-1#elements" frameborder="0"></iframe>
-<iframe width="500" height="500" src="c:\Users\bobba\Documents\OOPs Lab-E1-CSE-SEM2.pdf"></iframe>
-<table border="1" cellpadding="0" cellspacing="0" width="50%" class="Table">
-  <tr class="Thead">
-    <th>Sno</th>
-    <th>Name</th>
-    <th>ID No</th>
-  </tr>
-  <tr class="even">
-    <td>1</td>
-    <td>B.Nikhil</td>
-    <td>N220851</td>
-  </tr>
-  <tr class="odd">
-    <td>2</td>
-    <td>M.Mithilesh</td>
-    <td>N220768</td>
-  </tr>
-  <tr class="even">
-    <td>3</td>
-    <td>M.Venkat</td>
-    <td>N220622</td>
-  </tr>
+<div class="section">
+<h2>Student Details</h2>
+<table>
+<tr class="Thead"><th>Sno</th><th>Name</th><th>ID</th></tr>
+<tr class="even"><td>1</td><td>Nikhil</td><td>N220851</td></tr>
+<tr class="odd"><td>2</td><td>Mithilesh</td><td>N220768</td></tr>
+<tr class="even"><td>3</td><td>Venkat</td><td>N220622</td></tr>
 </table>
-<table border="1" cellpadding="0" cellspacing="0" width="50%">
-  <tr style="background-color: rgb(189, 189, 189);">
-    <th>Sno</th>
-    <th>Name</th>
-    <th>ID No</th>
-  </tr>
-  <tr style="background-color: rgba(127, 255, 212, 0.733);">
-    <td>1</td>
-    <td>B.Nikhil</td>
-    <td>N220851</td>
-  </tr>
-  <tr style="background-color: rgba(127, 255, 212, 0.733);">
-    <td>2</td>
-    <td>M.Mithilesh</td>
-    <td>N220768</td>
-  </tr>
-  <tr style="background-color: rgba(127, 255, 212, 0.733);">
-    <td>3</td>
-    <td>M.Venkat</td>
-    <td>N220622</td>
-  </tr>
+<table style="margin-top: 20px; margin-bottom: 20px; border-collapse: collapse;">
+<tr style="background-color: #5f6368;"><th>Sno</th><th>Name</th><th>ID</th></tr>
+<tr><td>1</td><td>Nikhil</td><td>N220851</td></tr>
+<tr><td>2</td><td>Mithilesh</td><td>N220768</td></tr>
+<tr><td>3</td><td>Venkat</td><td>N220622</td></tr>
 </table>
-<table border="1" class="ex" cellpadding="0" cellspacing="0" width="50%">
-  <tr>
-    <th>Sno</th>
-    <th>Name</th>
-    <th>ID No</th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>B.Nikhil</td>
-    <td>N220851</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>M.Mithilesh</td>
-    <td>N220768</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>M.Venkat</td>
-    <td>N220622</td>
-  </tr>
+<table style="margin-top: 20px; margin-bottom: 20px; border-collapse: collapse;" class="ex">
+<tr><th>Sno</th><th>Name</th><th>ID</th></tr>
+<tr><td>1</td><td>Nikhil</td><td>N220851</td></tr>
+<tr><td>2</td><td>Mithilesh</td><td>N220768</td></tr>
+<tr><td>3</td><td>Venkat</td><td>N220622</td></tr>
 </table>
-    </main>
+</div>
 
-  </div>
+<div class="section">
+<h2>Form</h2>
+<form class="Frm">
+<label class="Label">Name</label>
+<input class="Input">
 
-<script src="script.js"></script>
+<label class="Label">ID No</label>
+<input class="Input">
+
+<label class="Label">Place</label>
+<input class="Input">
+
+<label class="Label">Branch</label>
+<input type="checkbox"> CSE
+<input type="checkbox"> ECE
+<input type="checkbox"> EEE
+
+<label class="Label">Contact</label>
+<input class="Input">
+
+<button class="Button">Submit</button>
+</form>
+</div>
+
 </body>
 </html>
