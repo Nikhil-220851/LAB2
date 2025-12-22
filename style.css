@@ -276,6 +276,14 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-tr{
-  background-color: rgb(184, 255, 243);
+.ex{
+  border-collapse: collapse;
+  border-radius: 12px;
+  border-color:#f1f1f1;
+  font: 1em comics sans ms;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  color: red;
 }
