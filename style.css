@@ -275,3 +275,7 @@ body {
   background: #eef3fd;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
+
+tr{
+  background-color: rgb(184, 255, 243);
+}
