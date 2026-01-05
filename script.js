@@ -22,9 +22,9 @@ function outer(){
     inner();
 }
 outer();
-// (function (name){
-//     alert("Hi "+name+" Bobbadhi Welcome to Mail Section.");
-// })(name);
+(function (name){
+    alert("Hi "+name+" Bobbadhi Welcome to Mail Section.");
+})(name);
 
 let s1=Symbol("id");
 let s2=Symbol("id");
