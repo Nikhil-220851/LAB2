@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Simple Gmail UI</title>
+<link href="style.css" rel="stylesheet">
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, sans-serif;
+}
+
+body{
+  background:#f1f3f4;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 20px;
+  background:white;
+  border-bottom:1px solid #ddd;
+}
+
+.logo-text{
+  font-size:22px;
+  color:#5f6368;
+}
+
+.search-box{
+  display:flex;
+  align-items:center;
+  width:450px;
+  background:#e8eaed;
+  padding:10px 15px;
+  border-radius:24px;
+}
+
+.search-box input{
+  border:none;
+  background:transparent;
+  outline:none;
+  flex:1;
+}
+
+.profile{
+  width:35px;
+  height:35px;
+  background:#1a73e8;
+  color:white;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.container{
+  display:flex;
+  height:90vh;
+}
+
+.sidebar{
+  width:240px;
+  background:white;
+  padding:15px;
+}
+
+.compose{
+  background:#c2e7ff;
+  border:none;
+  padding:10px;
+  border-radius:20px;
+  width:100%;
+  margin-bottom:15px;
+  cursor:pointer;
+}
+
+.sidebar ul{
+  list-style:none;
+}
+
+.sidebar li{
+  padding:10px;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.sidebar li.active{
+  background:#d2e3fc;
+  font-weight:bold;
+}
+
+.sidebar li:hover{
+  background:#e8f0fe;
+}
+
+.mail-list{
+  flex:1;
+  margin:10px;
+  background:white;
+  border-radius:10px;
+  padding:10px;
+}
+
+.mail{
+  display:flex;
+  align-items:center;
+  padding:10px;
+  border-bottom:1px solid #eee;
+}
+
+.mail:hover{
+  background:#eef3fd;
+}
+
+.mail-content{
+  flex:1;
+}
+
+.sender{
+  font-weight:bold;
+}
+
+.subject{
+  color:#5f6368;
+}
+
+.time{
+  color:#5f6368;
+}
+
+.section{
+  margin:20px;
+  background:white;
+  padding:20px;
+  border-radius:12px;
+}
+
+.section h2{
+  margin-bottom:15px;
+  color:#1a73e8;
+}
+
+table{
+  border-collapse:collapse;
+  width:300px;
+}
+
+th,td{
+  border:1px solid #ddd;
+  padding:8px;
+  text-align:center;
+}
+
+.Thead{ 
+  background:#00ffbf; 
+  color:#005021; 
+} 
+
+.even{ 
+  background:#e8f7ff; 
+} 
+
+.odd{ 
+  background:#bfffe7; 
+}
+
+.Frm{
+  width:400px;
+  padding:20px;
+  margin:auto;
+  background:#e3f2fd;
+  border-radius:10px;
+  background-image: url("https://img.freepik.com/free-vector/colorful-flow-background_52683-43163.jpg");
+  background-repeat: no-repeat;
+}
+
+.Label{
+  display:block;
+  margin-top:15px;
+  font-weight:bold;
+}
+
+.Input{
+  width:100%;
+  padding:6px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+.Button{
+  width:100%;
+  height:40px;
+  margin-top:20px;
+  background:#1a73e8;
+  color:white;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.Button:hover{
+  background:#1557b0;
+}
+
+.box{
+  width:400px;
+  padding:20px;
+  margin:auto;
+  background:#e3f2fd;
+  border-radius:10px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="logo-text">Gmail</div>
+
+  <div class="search-box">
+    <input placeholder="Search mail">
+  </div>
+
+  <div class="profile"><a href="profile.html">N</a></div>
+</header>
+
+<div class="section">
+  <h2 style="text-align: center;" id="Heading"></h2>
+</div>
+
+<div class="container">
+
+<aside class="sidebar">
+  <button class="compose">Compose</button>
+  <ul>
+    <li class="active">Inbox</li>
+    <li>Starred</li>
+    <li>Sent</li>
+  </ul>
+</aside>
+
+<main class="mail-list">
+  <div class="mail">
+    <input type="checkbox">
+    <div class="mail-content">
+      <span class="sender">Google</span> —
+      <span class="subject">Welcome to Gmail</span>
+    </div>
+    <span class="time">10:30 AM</span>
+  </div>
+</main>
+
+</div>
+
+<div class="section" style="display: grid;">
+<h2>Media</h2>
+<div>
+<iframe height="200" src="https://www.youtube.com/embed/GFCvD76qwPA"></iframe>
+<audio controls></audio>
+<video controls></video>
+<img width="100%" src="https://thumbs.dreamstime.com/b/autumn-leaves-wet-stone-pathway-park-beautiful-fall-season-weather-night-concept-melancholy-rain-scene-wallpaper-395389772.jpg?w=992">
+</div>
+</div>
+
+<div class="section">
+<h2>Student Details</h2>
+<table>
+<tr class="Thead"><th>Sno</th><th>Name</th><th>ID</th></tr>
+<tr class="even"><td>1</td><td>Nikhil</td><td>N220851</td></tr>
+<tr class="odd"><td>2</td><td>Mithilesh</td><td>N220768</td></tr>
+<tr class="even"><td>3</td><td>Venkat</td><td>N220622</td></tr>
+</table>
+<table style="margin-top: 20px; margin-bottom: 20px; border-collapse: collapse;">
+<tr style="background-color: #5f6368;"><th>Sno</th><th>Name</th><th>ID</th></tr>
+<tr><td>1</td><td>Nikhil</td><td>N220851</td></tr>
+<tr><td>2</td><td>Mithilesh</td><td>N220768</td></tr>
+<tr><td>3</td><td>Venkat</td><td>N220622</td></tr>
+</table>
+<table style="margin-top: 20px; margin-bottom: 20px; border-collapse: collapse;" class="ex">
+<tr><th>Sno</th><th>Name</th><th>ID</th></tr>
+<tr><td>1</td><td>Nikhil</td><td>N220851</td></tr>
+<tr><td>2</td><td>Mithilesh</td><td>N220768</td></tr>
+<tr><td>3</td><td>Venkat</td><td>N220622</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2> Review Form</h2>
+<form class="Frm">
+<label class="Label">Name</label>
+<input class="Input"><br>
+
+<label class="Label">Email</label>
+<input class="Input"><br>
+
+<label class="Label">Place</label>
+<input class="Input"><br>
+
+<label class="Label">How do you define yourself</label>
+<input type="checkbox" style="color: white;"> Student
+<input type="checkbox" style="color: white;"> Employee
+<input type="checkbox" style="color: white;"> Freelancer<br>
+
+<label class="Label">Contact</label>
+<input class="Input"><br>
+
+<label class="Label">Review</label>
+<textarea class="Input" rows="4"></textarea><br>
+
+<button class="Button" id="Button">Submit</button>
+</form>
+</div>
+
+<div class="section">
+  <h2> GET YOUR GMAIL PREMIUM NOW </h2>
+  <div class="box">
+    <h2 style="text-align: center;" id="discount">99$</h2>
+    <p style="text-align: center;">Click the button below to avail the offer</p>
+    <label class="Label">Apply Coupons</label>
+    <select class="Input" onchange="discount()">
+      <option value="NONE">--Select Coupon--</option>
+      <option value="DISCOUNT10" id="coupon">WELCOMEMAIL06</option>
+    </select>
+    <button class="Button" id="buyBtn">Buy Now</button>
+  </div>
+</div>
+
+  <div class="section">
+    <form class="box">
+      <label class="Label">Name</label>
+      <p id="Frmname"></p>
+      <label class="Label">Age</label>
+      <p id="Frmage"></p>
+      <label class="Label">Branch</label>
+      <p id="Frmbranch"></p>
+      <label class="Label">Position</label>
+      <p id="Frmposition"></p>
+      <button type="button" class="Button" onclick="role()">Change Role</button>
+    </form>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

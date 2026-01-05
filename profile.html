@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Profile</title>
 
 <style>
     body{
@@ -64,27 +64,45 @@
 <body>
 
 <form class="login-box" action="gmail.html">
-  <h2>Login</h2>
+  <h2>Edit your Profile</h2>
 
   <label>Name</label>
-  <input type="text" placeholder="Enter name" required id="name">
+  <input type="text" id="profilename">
 
   <label>Email</label>
-  <input type="text" placeholder="Enter email" required id="Email">
+  <input type="text" id="profileemail">
 
-  <label>Password</label>
-  <input type="password" placeholder="Enter password" required>
-
-  <button type="submit" onclick="saveName()">Log In</button>
+  <button type="submit" onclick="confirmSave()">Save</button>
 </form>
 
 <script>
-  function saveName(){
-    var name=document.getElementById("name").value;
-    var email=document.getElementById("Email").value;
-    localStorage.setItem("userName", name);
-    localStorage.setItem("userEmail", email);
+  
+  const nameInput = document.getElementById("profileName");
+  const emailInput = document.getElementById("profileEmail");
+
+  if (nameInput && emailInput) {
+    oldName = localStorage.getItem("userName") || "";
+    oldEmail = localStorage.getItem("userEmail") || "";
+
+    nameInput.value = oldName;
+    emailInput.value = oldEmail;
   }
+
+function confirmSave(){
+  const nameInput = document.getElementById("profileName");
+  const emailInput = document.getElementById("profileEmail");
+
+  const confirmResult = confirm("Do you want to save the changes?");
+
+  if (confirmResult) {
+    localStorage.setItem("userName", nameInput.value);
+    localStorage.setItem("userEmail", emailInput.value);
+    alert("Changes saved successfully!");
+  } else {
+    nameInput.value = oldName;
+    emailInput.value = oldEmail;
+  }
+}
 </script>
 </body>
 </html>
