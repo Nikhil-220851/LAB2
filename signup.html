@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Sign Up</title>
 
 <style>
 body{
@@ -11,13 +11,13 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  background:linear-gradient(135deg,#1a73e8,#4285f4);
+  background:linear-gradient(135deg,#34a853,#0f9d58);
   font-family:Segoe UI, Arial, sans-serif;
 }
 
 .card{
-  width:360px;
-  background:#fff;
+  width:380px;
+  background:white;
   padding:30px;
   border-radius:14px;
   box-shadow:0 8px 25px rgba(0,0,0,0.25);
@@ -26,7 +26,7 @@ body{
 .card h2{
   text-align:center;
   margin-bottom:25px;
-  color:#1a73e8;
+  color:#0f9d58;
 }
 
 .input-group{
@@ -37,7 +37,6 @@ body{
   display:block;
   font-size:14px;
   margin-bottom:5px;
-  color:#333;
 }
 
 .input-group input{
@@ -45,19 +44,13 @@ body{
   padding:12px;
   border-radius:8px;
   border:1px solid #ccc;
-  font-size:14px;
-}
-
-.input-group input:focus{
-  outline:none;
-  border-color:#1a73e8;
 }
 
 button{
   width:100%;
   padding:12px;
-  background:#1a73e8;
-  color:#fff;
+  background:#0f9d58;
+  color:white;
   border:none;
   border-radius:25px;
   font-size:16px;
@@ -65,7 +58,7 @@ button{
 }
 
 button:hover{
-  background:#1557b0;
+  background:#0b8043;
 }
 
 .extra{
@@ -75,50 +68,44 @@ button:hover{
 }
 
 .extra a{
-  color:#1a73e8;
+  color:#0f9d58;
   text-decoration:none;
   font-weight:bold;
-}
-
-.extra a:hover{
-  text-decoration:underline;
 }
 </style>
 </head>
 
 <body>
 
-<form class="card" action="login.php" method="post">
-  <h2>Welcome Back</h2>
+<form class="card" action="signup.php" method="post">
+  <h2>Create Account</h2>
 
   <div class="input-group">
-    <label>Name</label>
-    <input type="text" id="name" placeholder="Enter your name" required name="name">
+    <label>Full Name</label>
+    <input type="text" placeholder="Enter your name" required name="name">
   </div>
 
   <div class="input-group">
     <label>Email</label>
-    <input type="email" id="email" placeholder="Enter your email" required name="email">
+    <input type="email" placeholder="Enter your email" required name="email">
   </div>
 
   <div class="input-group">
     <label>Password</label>
-    <input type="password" placeholder="Enter your password" required name="password">
+    <input type="password" placeholder="Create password" required name="password">
   </div>
 
-  <button type="submit" onclick="saveData()">Log In</button>
+  <div class="input-group">
+    <label>Confirm Password</label>
+    <input type="password" placeholder="Confirm password" required name="confirm_password">
+  </div>
+
+  <button type="submit">Sign Up</button>
 
   <div class="extra">
-    Don’t have an account? <a href="signup.html">Sign up</a>
+    Already have an account? <a href="index.html">Log in</a>
   </div>
 </form>
-
-<script>
-function saveData(){
-  localStorage.setItem("userName", document.getElementById("name").value);
-  localStorage.setItem("userEmail", document.getElementById("email").value);
-}
-</script>
 
 </body>
 </html>

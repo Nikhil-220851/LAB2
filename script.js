@@ -64,4 +64,4 @@ window.role = function() {
     } else {
         positionEl.innerText = "Web-Developer";
     }
-}
+};
