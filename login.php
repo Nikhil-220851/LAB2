@@ -8,7 +8,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $row = mysqli_query($conn, "SELECT * FROM users WHERE email='$email' AND password='$password'");
 if(mysqli_num_rows($row)==1){
-    header("Location: index.html");
+    header("Location: gmail.html");
     exit();
 } else {
     echo "Invalid email or password. Please <a href='index.html'> try again </a>";
