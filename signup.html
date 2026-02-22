@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Sign Up</title>
+<title>Campus Sign Up</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
@@ -11,93 +12,151 @@ body{
   display:flex;
   justify-content:center;
   align-items:center;
-  background:linear-gradient(135deg,#34a853,#0f9d58);
-  font-family:Segoe UI, Arial, sans-serif;
+  background:linear-gradient(-45deg,#34a853,#0f9d58,#00c853,#2e7d32);
+  background-size:400% 400%;
+  animation:gradientMove 10s ease infinite;
+  font-family:'Segoe UI', sans-serif;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
 .card{
-  width:380px;
-  background:white;
-  padding:30px;
-  border-radius:14px;
-  box-shadow:0 8px 25px rgba(0,0,0,0.25);
+  width:400px;
+  padding:35px;
+  border-radius:20px;
+  backdrop-filter:blur(18px);
+  background:rgba(255,255,255,0.15);
+  box-shadow:0 8px 32px rgba(0,0,0,0.3);
+  color:#fff;
 }
 
 .card h2{
   text-align:center;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  font-size:14px;
   margin-bottom:25px;
-  color:#0f9d58;
+  opacity:0.8;
 }
 
 .input-group{
-  margin-bottom:15px;
+  margin-bottom:18px;
 }
 
 .input-group label{
+  font-size:13px;
   display:block;
-  font-size:14px;
   margin-bottom:5px;
 }
 
 .input-group input{
   width:100%;
   padding:12px;
-  border-radius:8px;
-  border:1px solid #ccc;
+  border-radius:10px;
+  border:none;
+  font-size:14px;
+}
+
+.input-group input:focus{
+  outline:none;
+  box-shadow:0 0 0 2px #fff;
+}
+
+.password-wrapper{
+  position:relative;
+}
+
+.toggle{
+  position:absolute;
+  right:10px;
+  top:50%;
+  transform:translateY(-50%);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.strength{
+  font-size:12px;
+  margin-top:5px;
 }
 
 button{
   width:100%;
   padding:12px;
-  background:#0f9d58;
-  color:white;
   border:none;
-  border-radius:25px;
-  font-size:16px;
+  border-radius:30px;
+  font-size:15px;
   cursor:pointer;
+  margin-top:10px;
+  background:#fff;
+  color:#0f9d58;
+  font-weight:bold;
+  transition:0.3s;
 }
 
 button:hover{
-  background:#0b8043;
+  transform:scale(1.03);
 }
 
 .extra{
   text-align:center;
   margin-top:15px;
-  font-size:14px;
+  font-size:13px;
 }
 
 .extra a{
-  color:#0f9d58;
-  text-decoration:none;
+  color:#fff;
   font-weight:bold;
+  text-decoration:none;
+}
+
+.extra a:hover{
+  text-decoration:underline;
+}
+
+.error{
+  font-size:12px;
+  color:#ffcccb;
+  margin-top:5px;
 }
 </style>
 </head>
 
 <body>
 
-<form class="card" action="signup.php" method="post">
-  <h2>Create Account</h2>
+<form class="card" action="signup.php" method="post" onsubmit="return validateForm()">
+  <h2>Join Campus Portal</h2>
+  <div class="subtitle">Create your account to access notes, events & resources</div>
 
   <div class="input-group">
     <label>Full Name</label>
-    <input type="text" placeholder="Enter your name" required name="name">
+    <input type="text" required name="name">
   </div>
 
   <div class="input-group">
     <label>Email</label>
-    <input type="email" placeholder="Enter your email" required name="email">
+    <input type="email" required name="email">
   </div>
 
-  <div class="input-group">
+  <div class="input-group password-wrapper">
     <label>Password</label>
-    <input type="password" placeholder="Create password" required name="password">
+    <input type="password" id="password" required name="password" onkeyup="checkStrength()">
+    <span class="toggle" onclick="togglePassword('password')">Show</span>
+    <div class="strength" id="strengthText"></div>
   </div>
 
-  <div class="input-group">
+  <div class="input-group password-wrapper">
     <label>Confirm Password</label>
-    <input type="password" placeholder="Confirm password" required name="confirm_password">
+    <input type="password" id="confirm_password" required name="confirm_password">
+    <span class="toggle" onclick="togglePassword('confirm_password')">Show</span>
+    <div class="error" id="errorText"></div>
   </div>
 
   <button type="submit">Sign Up</button>
@@ -106,6 +165,40 @@ button:hover{
     Already have an account? <a href="index.html">Log in</a>
   </div>
 </form>
+
+<script>
+function togglePassword(id){
+  const input = document.getElementById(id);
+  input.type = input.type === "password" ? "text" : "password";
+}
+
+function checkStrength(){
+  const password = document.getElementById("password").value;
+  const strengthText = document.getElementById("strengthText");
+
+  if(password.length < 6){
+    strengthText.innerText = "Weak password";
+  }
+  else if(password.match(/[A-Z]/) && password.match(/[0-9]/)){
+    strengthText.innerText = "Strong password";
+  }
+  else{
+    strengthText.innerText = "Medium password";
+  }
+}
+
+function validateForm(){
+  const pass = document.getElementById("password").value;
+  const confirm = document.getElementById("confirm_password").value;
+  const errorText = document.getElementById("errorText");
+
+  if(pass !== confirm){
+    errorText.innerText = "Passwords do not match!";
+    return false;
+  }
+  return true;
+}
+</script>
 
 </body>
 </html>
