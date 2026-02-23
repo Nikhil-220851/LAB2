@@ -1,15 +1,27 @@
-<?php 
-$conn = mysqli_connect("localhost","root","","testdb");
-if(!$conn){
-    die("Database Connection failed: " . mysqli_connect_error());
-}
-$name = $_POST['name'];
+<?php
+require 'mongodb.php';   // include connection file
+session_start();
+
 $email = $_POST['email'];
 $password = $_POST['password'];
-$row = mysqli_query($conn, "SELECT * FROM users WHERE email='$email' AND password='$password'");
-if(mysqli_num_rows($row)==1){
-    header("Location: gmail.html");
-    exit();
+
+if(empty($email) || empty($password)){
+    die("All fields are required");
+}
+
+// Find user by email
+$user = $collection->findOne(['email' => $email]);
+
+if($user){
+
+    if(password_verify($password, $user['password'])){
+        $_SESSION['user'] = $user['name'];
+        header("Location: gmail.html");
+        exit();
+    } else {
+        echo "Invalid email or password. Please <a href='index.html'> try again </a>";
+    }
+
 } else {
     echo "Invalid email or password. Please <a href='index.html'> try again </a>";
 }
